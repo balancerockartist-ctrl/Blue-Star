@@ -1,1 +1,33 @@
+name: Claudia AI Dual C — CI
 
+on:
+  push:
+    branches: ["main", "copilot/**"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    name: Validate Project Structure
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm README exists
+        run: |
+          if [ ! -f README.md ]; then
+            echo "ERROR: README.md is missing."
+            exit 1
+          fi
+          echo "README.md found ✔"
+
+      - name: Echo project identity
+        run: |
+          echo "========================================"
+          echo "  Blue-Star ⭐ — Claudia AI Dual C"
+          echo "  G.O.S.© Global Operating System"
+          echo "  Godworld.org Logistics Systems (G.L.S.©)"
+          echo "========================================"
