@@ -72,6 +72,21 @@ A single script that consolidates:
 
 ---
 
+## Deployment
+
+Project documentation is automatically published to **GitHub Pages** on every push to the `main` branch via the [`deploy.yml`](.github/workflows/deploy.yml) workflow.
+
+| Item | Detail |
+|------|--------|
+| **Live docs** | `https://balancerockartist-ctrl.github.io/Blue-Star/` |
+| **Trigger** | Push to `main` or manual `workflow_dispatch` |
+| **Engine** | Jekyll (GitHub Pages default — renders `README.md` automatically) |
+| **Permissions** | `pages: write`, `id-token: write` (OIDC deploy token) |
+
+> **Note:** GitHub Pages must be enabled in the repository settings (Settings → Pages → Source → GitHub Actions) before the first deployment will succeed.
+
+---
+
 ## Mission
 
 Achieve complete transparency and direct 100% of donations to the system through strategic partnerships with established umbrella organizations, working toward a model where basic resources are freely distributed and money becomes irrelevant.
