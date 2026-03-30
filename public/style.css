@@ -1,0 +1,219 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   FreePay QR Store – Stylesheet
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --blue-dark:   #0a1628;
+  --blue-mid:    #1a3a6b;
+  --blue-bright: #2563eb;
+  --gold:        #f59e0b;
+  --gold-light:  #fde68a;
+  --white:       #ffffff;
+  --grey-100:    #f3f4f6;
+  --grey-300:    #d1d5db;
+  --grey-600:    #4b5563;
+  --green:       #16a34a;
+  --red:         #dc2626;
+  --radius:      0.75rem;
+  --shadow:      0 4px 24px rgba(0,0,0,0.15);
+  --font:        'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--blue-dark);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 0.9rem 0;
+  position: sticky; top: 0; z-index: 100;
+}
+.header-inner {
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.logo {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 1.25rem; font-weight: 700; color: var(--white);
+}
+.logo-star { color: var(--gold); font-size: 1.5rem; }
+.logo-text em { color: var(--gold); font-style: normal; }
+.header-nav { display: flex; gap: 0.5rem; flex: 1; }
+.nav-btn {
+  background: transparent; border: 1px solid var(--grey-300);
+  color: var(--white); border-radius: var(--radius);
+  padding: 0.4rem 1rem; cursor: pointer; font-size: 0.9rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.nav-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); }
+.wallet-badge {
+  background: var(--gold); color: var(--blue-dark);
+  border-radius: var(--radius); padding: 0.35rem 0.85rem;
+  font-weight: 600; font-size: 0.9rem; white-space: nowrap;
+}
+
+/* ── Views ─────────────────────────────────────────────────────────────── */
+.view { display: none; padding: 2rem 0 4rem; }
+.view.active { display: block; }
+.view-title { font-size: 2rem; font-weight: 800; margin-bottom: 0.4rem; }
+.view-subtitle { color: var(--grey-300); margin-bottom: 2rem; max-width: 640px; line-height: 1.5; }
+.section-title { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+/* ── Inputs ────────────────────────────────────────────────────────────── */
+label { display: block; font-size: 0.85rem; color: var(--grey-300); margin-bottom: 0.35rem; }
+input[type="text"], input[type="number"] {
+  width: 100%; padding: 0.55rem 0.8rem;
+  border-radius: var(--radius); border: 1px solid var(--grey-300);
+  background: rgba(255,255,255,0.08); color: var(--white);
+  font-size: 0.95rem;
+}
+input::placeholder { color: var(--grey-600); }
+input:focus { outline: 2px solid var(--gold); border-color: transparent; }
+
+.input-row { display: flex; gap: 0.75rem; align-items: flex-end; flex-wrap: wrap; }
+.input-row input { flex: 1; min-width: 160px; }
+
+.form-group { margin-bottom: 1rem; }
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.55rem 1.2rem; border-radius: var(--radius);
+  font-size: 0.95rem; font-weight: 600; cursor: pointer;
+  border: none; transition: opacity 0.2s, transform 0.1s;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--gold); color: var(--blue-dark); }
+.btn-primary:hover { opacity: 0.9; }
+.btn-secondary {
+  background: transparent; color: var(--white);
+  border: 1px solid var(--grey-300);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.1); }
+.btn-block { width: 100%; margin-top: 1rem; }
+
+/* ── User setup card ───────────────────────────────────────────────────── */
+.user-setup { margin-bottom: 2rem; }
+
+/* ── Product grid ──────────────────────────────────────────────────────── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.product-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.product-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.product-img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  background: var(--blue-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem;
+}
+.product-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+.product-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
+.product-desc { font-size: 0.85rem; color: var(--grey-300); flex: 1; margin-bottom: 0.75rem; }
+.product-price { font-size: 1.1rem; font-weight: 800; color: var(--gold); margin-bottom: 0.75rem; }
+.product-actions { display: flex; gap: 0.5rem; }
+.product-actions .btn { flex: 1; font-size: 0.82rem; padding: 0.45rem 0.5rem; }
+
+/* ── Checkout ──────────────────────────────────────────────────────────── */
+.checkout-card { max-width: 520px; }
+.checkout-item { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.checkout-item-name { font-size: 1.15rem; font-weight: 700; }
+.checkout-item-price { color: var(--gold); font-weight: 600; margin-top: 0.25rem; }
+.placeholder-text { color: var(--grey-600); font-style: italic; }
+.checkout-summary {
+  background: rgba(0,0,0,0.2); border-radius: var(--radius);
+  padding: 0.75rem 1rem; margin-bottom: 0.5rem; font-size: 0.9rem;
+  line-height: 1.8;
+}
+.checkout-summary .row { display: flex; justify-content: space-between; }
+.checkout-summary .total { font-weight: 700; font-size: 1rem; color: var(--gold); }
+
+/* ── Receipt ───────────────────────────────────────────────────────────── */
+.receipt {
+  margin-top: 1.25rem; padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.receipt h3 { color: var(--green); margin-bottom: 0.75rem; }
+.receipt .row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.25rem; }
+
+/* ── Stats ─────────────────────────────────────────────────────────────── */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat-card { text-align: center; }
+.stat-label { font-size: 0.85rem; color: var(--grey-300); margin-bottom: 0.5rem; }
+.stat-value { font-size: 2rem; font-weight: 800; color: var(--gold); }
+.tx-filter { display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.tx-filter input { flex: 1; min-width: 180px; }
+.tx-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.tx-row {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0.5rem; padding: 0.75rem 1rem;
+  font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
+  align-items: center;
+}
+.tx-type {
+  font-weight: 700; text-transform: uppercase; font-size: 0.75rem;
+  padding: 0.15rem 0.5rem; border-radius: 0.3rem;
+}
+.tx-type.credit { background: rgba(22,163,74,0.3); color: #86efac; }
+.tx-type.payment { background: rgba(37,99,235,0.3); color: #93c5fd; }
+.tx-amount { font-weight: 700; color: var(--gold); margin-left: auto; }
+.tx-time { color: var(--grey-600); font-size: 0.78rem; width: 100%; }
+
+/* ── QR Modal ──────────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center; z-index: 200;
+}
+.modal-overlay[hidden] { display: none; }
+.modal-box { max-width: 360px; width: 90%; text-align: center; position: relative; }
+.modal-close {
+  position: absolute; top: 0.75rem; right: 0.75rem;
+  background: transparent; border: none; color: var(--white);
+  font-size: 1.1rem; cursor: pointer;
+}
+.qr-image { max-width: 220px; width: 100%; margin: 1rem auto; display: block; border-radius: 0.5rem; }
+.qr-hint { font-size: 0.85rem; color: var(--grey-300); }
+
+/* ── Toast ─────────────────────────────────────────────────────────────── */
+.toast {
+  position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  background: var(--blue-mid); color: var(--white);
+  border: 1px solid var(--gold); border-radius: var(--radius);
+  padding: 0.75rem 1.5rem; font-size: 0.9rem; z-index: 300;
+  box-shadow: var(--shadow);
+}
+.toast[hidden] { display: none; }
+.toast.error { border-color: var(--red); background: rgba(220,38,38,0.2); }
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .view-title { font-size: 1.5rem; }
+  .header-nav { order: 3; width: 100%; }
+  .wallet-badge { font-size: 0.8rem; }
+}
