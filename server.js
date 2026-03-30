@@ -18,6 +18,7 @@
 
 const path = require("path");
 const express = require("express");
+const rateLimit = require("express-rate-limit");
 const freepay = require("./freepay");
 const glsLedger = require("./gls");
 const { generateQRCode } = require("./qr");
@@ -25,6 +26,27 @@ const { generateQRCode } = require("./qr");
 const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+// ── Rate limiting ─────────────────────────────────────────────────────────────
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many requests, please try again later." },
+});
+
+const qrLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "QR code generation rate limit exceeded." },
+});
+
+app.use("/api/", apiLimiter);
+app.use("/api/qr", qrLimiter);
 
 // ── Credit issuance ──────────────────────────────────────────────────────────
 
@@ -123,7 +145,7 @@ app.get("/api/stats", (req, res) => {
 
 // ── Checkout page (SPA fallback) ──────────────────────────────────────────────
 
-app.get("/checkout", (_req, res) => {
+app.get("/checkout", qrLimiter, (_req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 

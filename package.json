@@ -7,11 +7,20 @@
     "start": "node server.js",
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
   },
-  "keywords": ["freepay", "qr-store", "e-commerce", "credits", "gls", "gos"],
+  "keywords": [
+    "freepay",
+    "qr-store",
+    "e-commerce",
+    "credits",
+    "gls",
+    "gos"
+  ],
   "author": "Henry Howard Kennemore III",
   "license": "MIT",
   "dependencies": {
     "express": "4.22.1",
+    "express-rate-limit": "7.5.0",
+    "express-rate-limit": "^7.5.0",
     "qrcode": "1.5.3",
     "uuid": "9.0.0"
   },
