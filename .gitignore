@@ -1,0 +1,35 @@
+# Node.js / Hardhat
+node_modules/
+dist/
+artifacts/
+cache/
+typechain-types/
+
+# Deployment outputs (keep deployments/ tracked for reference)
+deployments/localhost.json
+
+# Secrets — never commit!
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+node_modules/
