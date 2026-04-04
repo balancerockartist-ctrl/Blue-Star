@@ -87,7 +87,7 @@
    * Returns the answer string or a fallback message.
    */
   function findAnswer(query) {
-    var normalised = query.toLowerCase().trim();
+    var normalized = query.toLowerCase().trim();
 
     var bestMatch = null;
     var bestScore = 0;
@@ -98,15 +98,15 @@
 
       for (var k = 0; k < entry.keywords.length; k++) {
         var kw = entry.keywords[k];
-        if (normalised === kw) {
+        if (normalized === kw) {
           score += 10; // exact match
-        } else if (normalised.indexOf(kw) !== -1) {
+        } else if (normalized.indexOf(kw) !== -1) {
           score += 5; // substring match
         } else {
           // Check individual words
           var words = kw.split(/\s+/);
           for (var w = 0; w < words.length; w++) {
-            if (normalised.indexOf(words[w]) !== -1) {
+            if (normalized.indexOf(words[w]) !== -1) {
               score += 2;
             }
           }
