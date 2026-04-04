@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1AI - Re-Search | AI for Every 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <span class="logo-1">1</span><span class="logo-ai">AI</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1><span class="highlight">1AI</span> &mdash; AI for Every 1</h1>
+      <p class="tagline">Re-Search: An intelligent search engine powered by LLM technology</p>
+
+      <div class="search-container">
+        <form id="search-form" role="search" aria-label="Re-Search">
+          <div class="search-box">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Ask Re-Search anything..."
+              autocomplete="off"
+              aria-label="Search query"
+            >
+            <button type="submit" id="search-btn" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </form>
+        <div class="suggestions">
+          <button class="suggestion" data-query="What is 1AI?">What is 1AI?</button>
+          <button class="suggestion" data-query="How does Re-Search work?">How does Re-Search work?</button>
+          <button class="suggestion" data-query="Tell me about the Global Operating System">Global Operating System</button>
+          <button class="suggestion" data-query="What is QR Store?">What is QR Store?</button>
+        </div>
+      </div>
+
+      <div id="results-container" class="results-container" hidden>
+        <div class="result-header">
+          <h2>Re-Search Results</h2>
+          <button id="clear-btn" class="clear-btn" aria-label="Clear results">Clear</button>
+        </div>
+        <div id="results" class="results"></div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About 1AI</h2>
+      <p>
+        <strong>1AI</strong> is the vision of AI for every single person &mdash; accessible,
+        intelligent, and built to serve everyone equally. Powered by the
+        <strong>Re-Search</strong> engine, 1AI uses large language model (LLM)
+        technology to understand your questions and deliver meaningful, conversational answers.
+      </p>
+      <p>
+        Built as part of the <strong>Blue-Star</strong> project and the
+        <strong>G.O.S.&copy; (Global Operating System)</strong>, 1AI represents the next
+        generation of AI-driven search that goes beyond simple keyword matching to truly
+        understand and respond to human queries.
+      </p>
+    </section>
+
+    <section id="features" class="features">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Re-Search Engine</h3>
+          <p>An LLM-powered search engine that understands natural language and provides intelligent, contextual responses.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI for Every 1</h3>
+          <p>Accessible AI technology designed to serve every individual, regardless of technical expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Global Operating System</h3>
+          <p>Part of the G.O.S.&copy; ecosystem &mdash; agentic AI technology for a connected world.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Conversational Interface</h3>
+          <p>Ask questions naturally and receive thoughtful, well-structured answers in real time.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 1AI &mdash; Blue-Star Project. AI for Every 1.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
